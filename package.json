@@ -1,0 +1,12 @@
+{
+  "name": "copilottestcases",
+  "version": "1.0.0",
+  "description": "Cypress E2E tests for login functionality.",
+  "main": "index.js",
+  "scripts": {
+    "test": "cypress run"
+  },
+  "devDependencies": {
+    "cypress": "^12.0.0"
+  }
+}
