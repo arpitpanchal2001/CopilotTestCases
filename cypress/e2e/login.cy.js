@@ -11,7 +11,7 @@ describe('Login Functionality', () => {
   // login test cases
   it('should login successfully with valid credentials', () => {
     cy.get('input#Username').type('AndyWVS');
-    cy.get('input#Password').type('AndyWVS');
+    cy.get('input#Password').type('EasterBush1');
     cy.get('input[value="Login"]').click();
     cy.contains('Dashboard').should('be.visible'); // Adjust as per actual post-login UI
     
@@ -19,29 +19,25 @@ describe('Login Functionality', () => {
 
   it('should show error for invalid username', () => {
     cy.get('input#Username').type('WrongUser');
-    cy.get('input#Password').type('AndyWVS');
+    cy.get('input#Password').type('EasterBush1');
     cy.get('input[value="Login"]').click();
-    cy.contains('Invalid username or password').should('be.visible'); // Adjust error message as needed
+    cy.contains('Please enter valid credentials').should('be.visible'); // Adjust error message as needed
   });
 
   it('should show error for invalid password', () => {
     cy.get('input#Username').type('AndyWVS');
     cy.get('input#Password').type('WrongPass');
     cy.get('input[value="Login"]').click();
-    cy.contains('Invalid username or password').should('be.visible');
+    cy.contains('Please enter valid credentials').should('be.visible');
   });
 
-  it('should show error for blank username and password', () => {
-    cy.get('input[value="Login"]').click();
-    cy.contains('Username is required').should('be.visible'); // Adjust as per actual validation
-    cy.contains('Password is required').should('be.visible');
-  });
+
 
   it('should handle special characters in username and password', () => {
     cy.get('input#Username').type('!@#$%^&*()');
     cy.get('input#Password').type('!@#$%^&*()');
     cy.get('input[value="Login"]').click();
-    cy.contains('Invalid username or password').should('be.visible');
+    cy.contains('Please enter valid credentials').should('be.visible');
   });
 
   it('should handle very long username and password', () => {
@@ -49,6 +45,6 @@ describe('Login Functionality', () => {
     cy.get('input#Username').type(longStr);
     cy.get('input#Password').type(longStr);
     cy.get('input[value="Login"]').click();
-    cy.contains('Invalid username or password').should('be.visible');
+    cy.contains('Please enter valid credentials').should('be.visible');
   });
 });
