@@ -9,7 +9,7 @@ describe('Login Functionality', () => {
   });
 
   // login test cases
-  it('should login successfully with valid credentials', () => {
+  it('should login successfully with valid credentials', () => { // edited
     cy.get('input#Username').type('AndyWVS');
     cy.get('input#Password').type('EasterBush1');
     cy.get('input[value="Login"]').click();
