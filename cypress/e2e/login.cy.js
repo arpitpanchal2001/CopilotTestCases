@@ -13,7 +13,7 @@ describe('Login Functionality', () => {
     cy.get('input#Username').type('AndyWVS');
     cy.get('input#Password').type('EasterBush1');
     cy.get('input[value="Login"]').click();
-    cy.contains('Dashboard').should('be.visible'); // Adjust as per actual post-login UI
+    cy.contains('Dashboard').should('be.visible'); 
     
   });
 
@@ -21,7 +21,7 @@ describe('Login Functionality', () => {
     cy.get('input#Username').type('WrongUser');
     cy.get('input#Password').type('EasterBush1');
     cy.get('input[value="Login"]').click();
-    cy.contains('Please enter valid credentials').should('be.visible'); // Adjust error message as needed
+    cy.contains('Please enter valid credentials').should('be.visible'); 
   });
 
   it('should show error for invalid password', () => {
